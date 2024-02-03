@@ -1,17 +1,18 @@
-import { auth, signOut } from "@/auth"
+import { signOut } from "@/auth";
 
-const Settings = async ()=>{
-    const session = await auth()
-    
-    return <div>
-        <p>{JSON.stringify(session)}</p>
-        <form action={async ()=>{
-            "use server";
-            await signOut()
-        }}>
+const Settings = async () => {
+  return (
+    <div className="bg-white p-10 rounded-xl">
+      <form
+        action={async () => {
+          "use server";
+          await signOut();
+        }}
+      >
         <button type="submit">Sign Out</button>
-        </form>
+      </form>
     </div>
-}
+  );
+};
 
-export default Settings
+export default Settings;
